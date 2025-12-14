@@ -1,0 +1,8 @@
+<button (click)="change()">add a contact</button>
+
+<div *ngIf = display>
+    <input placeholder="type the name here" [(ngModel)] = "name" >
+    <input placeholder="type the number here" [(ngModel)] = "numbervariable">
+    <button (click)="add()"> add </button>
+
+</div>
