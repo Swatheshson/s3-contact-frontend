@@ -21,7 +21,7 @@ export class ContactService {
 //something to save the received hashmap
 
   pullcontactfromhashmap(){
-
+    //code to fetch data from the springpart
   }
   
 }
