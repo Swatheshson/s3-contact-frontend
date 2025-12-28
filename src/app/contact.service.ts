@@ -18,5 +18,10 @@ export class ContactService {
   addContact(acontact:Contact):Observable<Contact>{
     return this.http.post<Contact>(this.apiUrl,acontact);
   }
+//something to save the received hashmap
+
+  pullcontactfromhashmap(){
+
+  }
   
 }

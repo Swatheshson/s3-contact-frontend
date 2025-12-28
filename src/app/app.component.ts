@@ -26,6 +26,14 @@ export class App {
     this.display = true;
   }
 
+  pullcontactsfromhashmap(){
+    //code to retrive data from that backend contacts hashmap object
+     this.contact.pullcontactfromhashmap()
+
+
+
+  }
+
 
   add(){
     const userdata = {
