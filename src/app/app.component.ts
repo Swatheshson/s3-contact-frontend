@@ -21,6 +21,7 @@ export class App {
    
   //initial value
   display:boolean = false;
+  showcont:boolean = false;
   //variable to hold values 
   name:string = ""
   numbervariable!:number
@@ -30,6 +31,7 @@ export class App {
   }
 
   pullcontactsfromhashmap(){
+    this.showcont = true;
     //code to retrive data from that backend contacts hashmap object
      this.contact.pullcontactfromhashmap().subscribe(
       {
