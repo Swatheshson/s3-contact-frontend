@@ -12,16 +12,18 @@ export class ContactService {
 
    }
 
-   private apiUrl = 'http://localhost:8080/addcontacts';
+   private apiUrl = 'http://localhost:8080';
 
   //method should be here so that the ts file will access this method
-  addContact(acontact:Contact):Observable<Contact>{
-    return this.http.post<Contact>(this.apiUrl,acontact);
+  addContact(acontact:Contact):Observable<String>{
+    return this.http.post (this.apiUrl+"/add",acontact,{ responseType: 'text' });
   }
 //something to save the received hashmap
 
-  pullcontactfromhashmap(){
+  pullcontactfromhashmap():Observable<>{
     //code to fetch data from the springpart
+    //when i call that method that has to return 
+    return this.http.get(this.apiUrl+"/show");
   }
   
 }
