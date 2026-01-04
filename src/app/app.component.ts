@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { ContactService } from './contact.service';
 
+
 @Component({
   selector: 'app-root',
   standalone:true,
@@ -15,6 +16,8 @@ import { ContactService } from './contact.service';
 export class App {
   title = "contact-app"
    constructor(private contact:ContactService) {}
+
+  receivedcontacts: Record<string, number> = {}; 
    
   //initial value
   display:boolean = false;
@@ -32,6 +35,9 @@ export class App {
       {
   next: (data) => {
     console.log('Data received:', data);
+    this.receivedcontacts = data;
+
+    //
 
   },
   error: (err) => {
