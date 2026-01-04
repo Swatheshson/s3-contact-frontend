@@ -20,7 +20,7 @@ export class App {
   display:boolean = false;
   //variable to hold values 
   name:string = ""
-  numbervariable!:bigint
+  numbervariable!:number
   
   change(){
     this.display = true;
@@ -28,7 +28,21 @@ export class App {
 
   pullcontactsfromhashmap(){
     //code to retrive data from that backend contacts hashmap object
-     this.contact.pullcontactfromhashmap()
+     this.contact.pullcontactfromhashmap().subscribe(
+      {
+  next: (data) => {
+    console.log('Data received:', data);
+
+  },
+  error: (err) => {
+    console.error('Something went wrong', err);
+  },
+  complete: () => {
+    console.log('Observable completed'); 
+  }
+}
+
+     );
 
 
      
