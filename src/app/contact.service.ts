@@ -25,5 +25,10 @@ export class ContactService {
     //when i call that method that has to return 
     return this.http.get<Record<string,number>>(this.apiUrl+"/show");
   }
+
+  uploadtocloud():Observable<void>{
+    console.log("fine");
+    return this.http.post<void>(this.apiUrl+"/save",null);
+  }
   
 }

@@ -69,4 +69,10 @@ export class App {
     }));
     
   }
+
+  //method to upload to cloud
+  uploadtocloud(){
+    console.log("entered")
+    this.contact.uploadtocloud().subscribe({})
+  }
 }
