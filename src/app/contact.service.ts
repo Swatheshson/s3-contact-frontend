@@ -27,8 +27,15 @@ export class ContactService {
   }
 
   uploadtocloud():Observable<void>{
-    console.log("fine");
+    
     return this.http.post<void>(this.apiUrl+"/save",null);
   }
+
+  
+
+  delmethod(nametodel: string): Observable<string> {
+  return this.http.delete<string>(`${this.apiUrl}/del/${nametodel}`);
+}
+
   
 }

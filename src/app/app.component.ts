@@ -13,18 +13,22 @@ import { ContactService } from './contact.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class App {
+export class AppComponent {
   title = "contact-app"
    constructor(private contact:ContactService) {}
 
   receivedcontacts: Record<string, number> = {}; 
+
    
   //initial value
   display:boolean = false;
   showcont:boolean = false;
+  delenab:boolean = false;
   //variable to hold values 
   name:string = ""
   numbervariable!:number
+
+  nametodel:string = ""
   
   change(){
     this.display = true;
@@ -75,4 +79,14 @@ export class App {
     console.log("entered")
     this.contact.uploadtocloud().subscribe({})
   }
+
+  delete(){
+    this.contact.delmethod(this.nametodel).subscribe({});
+  }
+
+  del(){
+    this.delenab=true;
+  }
+
+
 }
