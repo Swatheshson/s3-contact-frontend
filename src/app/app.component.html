@@ -1,53 +1,63 @@
-<button class="primary-btn" (click)="change()">
-  ➕ Add Contact
-</button>
 
-<div *ngIf="display" class="card">
-  <h3>Add New Contact</h3>
+<div class="container py-5">
 
-  <div class="form-group">
-    <label>Name</label>
-    <input
-      type="text"
-      placeholder="Enter name"
-      [(ngModel)]="name"
-    />
+  <!-- Header -->
+  <div class="text-center mb-4">
+    <h1 class="fw-bold text-primary">Contact Manager</h1>
+    <p class="text-muted">Manage contacts and upload them to the cloud</p>
   </div>
 
-  <div class="form-group">
-    <label>Phone Number</label>
-    <input
-      type="text"
-      placeholder="Enter number"
-      [(ngModel)]="numbervariable"
-    />
+  <!-- Add Contact -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Add Contact</h5>
+
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Enter name">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input type="number" class="form-control" [(ngModel)]="numbervariable" placeholder="Enter phone number">
+      </div>
+
+      <button class="btn btn-primary w-100" (click)="add()">Add Contact</button>
+    </div>
   </div>
+
+  <!-- Actions -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Actions</h5>
+
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-secondary flex-fill"
+                (click)="pullcontactsfromhashmap()">
+          View Contacts
+        </button>
+
+        <button class="btn btn-success flex-fill"
+                (click)="uploadtocloud()">
+          Upload to Cloud
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contacts List -->
+  <div class="card shadow-sm" *ngIf="showcont">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Saved Contacts</h5>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between"
+            *ngFor="let contact of receivedcontacts | keyvalue">
+          <span class="fw-semibold">{{ contact.key }}</span>
+          <span class="text-muted">{{ contact.value }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 </div>
-
-
-  <button class="success-btn" (click)="add()">
-    ✔ Save Contact
-  </button>
-
-
-
-
-  <button class="btn btn-primary" (click)="pullcontactsfromhashmap()">
-    Show Contacts
-  </button>
-
- <div *ngIf="showcont && receivedcontacts && (receivedcontacts | keyvalue).length > 0" class="contacts-list">
-    <h2>Contacts List</h2>
-    <ul>
-      <li *ngFor="let entry of receivedcontacts | keyvalue">
-        <strong>Name:</strong> {{ entry.key }} <br />
-        <strong>Phone:</strong> {{ entry.value }}
-      </li>
-    </ul>
- </div>
-
- <button (click)="uploadtocloud()">
-  Upload the progress
- </button>
-
-
