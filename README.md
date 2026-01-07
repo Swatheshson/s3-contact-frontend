@@ -1,4 +1,4 @@
-📇 Contact Manager Application
+📇 Contact Manager Application (This repo is the front end part the backend it at: "https://github.com/Swatheshson/S3-contact-springboot-backend")
 
 A web application to add, view, delete the existing contact, and upload contacts using Angular for the frontend and Spring Boot for the backend integrated with aws s3 bucket
 
